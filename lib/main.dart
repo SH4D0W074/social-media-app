@@ -1,4 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:socialmediaapp/auth/auth.dart';
+import 'package:socialmediaapp/pages/home_page.dart';
+import 'package:socialmediaapp/pages/profile_page.dart';
+import 'package:socialmediaapp/pages/users_page.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:socialmediaapp/auth/login_or_register.dart';
@@ -21,9 +25,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginOrRegister(),
+      home: const AuthPage(),
       theme: lightMode,
       darkTheme: darkMode,
+      routes: {
+        '/login_register_page': (context) => const LoginOrRegister(),
+        '/home_page': (context) => const HomePage(),
+        '/profile_page': (context) => const ProfilePage(),
+        '/users_page': (context) => const UsersPage(),
+      },
     );
 
   }
